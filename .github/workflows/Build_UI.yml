@@ -1,0 +1,39 @@
+name: Build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # push:
+  #   branches: [ "main" ]
+
+  workflow_dispatch:
+
+
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+        run:
+          working-directory: ./frontend
+    environment: MS
+    steps:
+      - uses: actions/checkout@v4
+
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+
+      # - name: Run Script
+      #   run: |
+      #     npm i --force
+      #     npm run build
+      
+      # - name: Commit
+      #   run: |
+
+      - name: Setup WinRM
+        run: winrm set winrm/config/client '@{TrustedHosts="*"}'
+
+      - name: Deploy
+        # run: winrs -r:${{secrets.IP}} -u:Administrator -p:${{secrets.PASS}} powershell ./script.ps1 Test
+        run: winrs -r:15.206.160.211 -u:Administrator -p:Anil1980 powershell ./script.ps1 Test
