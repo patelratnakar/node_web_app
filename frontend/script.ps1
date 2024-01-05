@@ -7,7 +7,7 @@ $guid=New-Guid
 Remove-Item $physicalPath -Recurse -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Force -Path $physicalPath
 
-Invoke-WebRequest "https://github.com/mr-piyushbhatia/ecommerce-shera/archive/refs/heads/main.zip" -OutFile .\$guid.zip
+Invoke-WebRequest "https://github.com/patelratnakar/node_web_app/archive/refs/heads/main.zip" -OutFile .\$guid.zip
 Expand-Archive .\$guid.zip .\
 Move-Item .\ecommerce-shera-main\frontend\build\* $physicalPath -Force
 Remove-Item .\$guid.zip
