@@ -2,7 +2,7 @@ name: Python_setup
 on:
   push:
      branches: 
-     - featuer/rat/python
+     - main
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
