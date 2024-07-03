@@ -9,7 +9,7 @@ jobs:
     name: set_up_python 3.10
     steps:
       - uses: actions/checkout@v3
-      - uses: patelratnakar/py-steup@v3.2
+      - uses: patelratnakar/py-steup@v3.3
         with:
           python-version: '3.10'
       - run: python --version 
